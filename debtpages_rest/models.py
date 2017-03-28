@@ -10,6 +10,8 @@ STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 class Debt(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     amount = models.IntegerField(default=0)
+    burrower = models.ForeignKey('auth.User', related_name='debts_burrowed', on_delete=models.CASCADE)
+    lender = models.ForeignKey('auth.User', related_name='debts_lended', on_delete=models.CASCADE)
 
     class Meta:
         ordering = ('created',)

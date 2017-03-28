@@ -5,4 +5,4 @@ from debtpages_rest.models import Debt
 class DebtSerializer(serializers.ModelSerializer):
     class Meta:
         model = Debt
-        fields = ('id', 'amount')
+        fields = ('id', 'amount','lender','burrower')
