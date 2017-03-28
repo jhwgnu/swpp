@@ -1,8 +1,13 @@
 from rest_framework import serializers
-from debtpages_rest.models import Debt
-
+from .models import Debt
+from django.contrib.auth.models import User
 
 class DebtSerializer(serializers.ModelSerializer):
     class Meta:
         model = Debt
-        fields = ('id', 'amount','lender','burrower')
+        fields = ('id','created','amount','burrower','lender')
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('__all__')
